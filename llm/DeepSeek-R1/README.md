@@ -114,3 +114,23 @@
 
 ## 板端服务部署
 
+    cd ~ && mkdir rkllm_server/lib && cd rkllm_server && conda activate rkllm
+    # 将~/rknn-llm/examples/rkllm_server_demo/rkllm_server目录下的flask_server.py和gradio_server.py上传至板端rkllm_server文件夹内，可以将仓库中的gradio_server.py替换官方的文件使用
+    # 将~/rknn-llm/rkllm-runtime/Linux/librkllm_api/aarch64目录下的librkllmrt.so上传至板端rkllm_server/lib文件夹内
+
+运行tree命令后结果如下
+
+    rkllm/
+    ├── lib
+    │   └── librkllmrt.so
+    ├── flask_server.py
+    └── gradio_server.py
+
+安装gradio包
+
+    pip install gradio
+
+板端服务运行
+
+    python3 gradio_server.py --target_platform rk3588 --rkllm_model_path ~/rkllm/deepseek-r1-1.5b-w8a8.rkllm
+    # 打开同一局域网下的浏览器，输入http://开发板ip地址:8080进行访问
