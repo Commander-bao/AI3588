@@ -1,6 +1,6 @@
 import numpy as np
 import cv2
-import test.config as config
+import config
 from py_utils.coco_utils import COCO_test_helper  # 导入 COCO 测试辅助工具
 co_helper = COCO_test_helper(enable_letter_box=True)
 
