@@ -233,5 +233,9 @@ def myFunc(rknn_lite, IMG):
 
     if boxes is not None:  # 如果检测到目标
         draw(IMG, boxes, scores, classes)  # 在图像上绘制检测框和类别信息
-
+        '''
+        for box, score, cl in zip(boxes, scores, classes):
+            top, left, right, bottom = [int(_b) for _b in box]  # 获取检测框的坐标
+            print(f"Class: {config.CLASSES[cl]}, Score: {score:.2f}, Box: ({top}, {left}, {right}, {bottom})")
+        '''
     return IMG
