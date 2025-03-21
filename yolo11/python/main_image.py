@@ -4,7 +4,7 @@ import sys
 import argparse
 import numpy as np
 import func
-import config
+import test.config as config
 
 # 添加项目路径到系统路径，以便导入自定义模块
 realpath = os.path.abspath(__file__)  # 获取当前脚本的绝对路径

@@ -3,6 +3,23 @@ OBJ_THRESH = 0.25  # 目标检测的置信度阈值
 NMS_THRESH = 0.45  # 非极大值抑制（NMS）的阈值
 IMG_SIZE = (640, 640)  # 输入图像的尺寸（宽，高）
 
+# 感兴趣范围坐标
+CENTER_X = 320
+CENTER_Y = 320
+WIDTH = 640
+HEIGHT = 640
+
+X1 = CENTER_X - WIDTH / 2
+X2 = CENTER_X + WIDTH / 2
+Y1 = CENTER_Y - HEIGHT / 2
+Y2 = CENTER_Y + HEIGHT / 2
+
+
+# 选择是否输出预测框坐标
+OUTPUT_PREDICTION_BOX_COORDINATES = False
+
+
+# 检测类别顺序列表
 CLASSES = (
     "person", "bicycle", "car", "motorcycle", "airplane", "bus", "train", "truck", "boat", "traffic light",
     "fire hydrant", "stop sign", "parking meter", "bench", "bird", "cat", "dog", "horse", "sheep", "cow", "elephant",

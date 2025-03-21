@@ -185,7 +185,8 @@ def draw(image, boxes, scores, classes):
     """
     for box, score, cl in zip(boxes, scores, classes):  # 遍历每个检测框
         top, left, right, bottom = [int(_b) for _b in box]  # 获取检测框的坐标
-        # print("%s @ (%d %d %d %d) %.3f" % (config.CLASSES[cl], top, left, right, bottom, score))  # 打印检测框信息
+        if config.OUTPUT_PREDICTION_BOX_COORDINATES:        
+            print("%s @ (%d %d %d %d) %.3f" % (config.CLASSES[cl], top, left, right, bottom, score))  # 打印检测框信息
         cv2.rectangle(image, (top, left), (right, bottom), (255, 0, 0), 2)  # 绘制检测框
         cv2.putText(image, '{0} {1:.2f}'.format(config.CLASSES[cl], score),  # 绘制类别和得分
                     (top, left - 6), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 0, 255), 2)
@@ -235,7 +236,8 @@ def myFunc(rknn_lite, IMG):
         draw(IMG, boxes, scores, classes)  # 在图像上绘制检测框和类别信息
         '''
         for box, score, cl in zip(boxes, scores, classes):
-            top, left, right, bottom = [int(_b) for _b in box]  # 获取检测框的坐标
-            print(f"Class: {config.CLASSES[cl]}, Score: {score:.2f}, Box: ({top}, {left}, {right}, {bottom})")
+            x1, y1, x2, y2 = [int(_b) for _b in box]  # 获取检测框的坐标
+            if(2*config.X1 < x1 + x2 and x1+x2 < 2*config.X2) and (2*config.Y1 < y1 + y2 and y1+y2 < 2*config.Y2):
+                print(f"Class: {config.CLASSES[cl]}, Score: {score:.2f}, Box: ({x1}, {y1}, {x2}, {y2})") # 输出感兴趣范围内的坐标
         '''
     return IMG
