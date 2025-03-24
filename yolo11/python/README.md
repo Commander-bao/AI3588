@@ -123,7 +123,7 @@ requirements.txt文件内容如下
 
 ## 板端升级Cmake版本
 
-    conda install -c conda-forge cmake
+    conda install -c conda-forge cmake=3.25.*
 
 ## 板端安装rknn-toolkit（2.3.0版本）
 
