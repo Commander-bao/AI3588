@@ -127,15 +127,22 @@ requirements.txt文件内容如下
 
 ## 板端安装rknn-toolkit（2.3.0版本）
 
-```
-git clone --branch v2.3.0 git@github.com:airockchip/rknn-toolkit2.git
-cd rknn-toolkit2/packages/arm64
+    git clone --branch v2.3.0 git@github.com:airockchip/rknn-toolkit2.git
+    cd rknn-toolkit2/packages/arm64
 
-conda activate yolo11
-pip install -r arm64_requirements_cp310.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
-pip install rknn_toolkit2-2.3.0-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+    conda activate yolo11
+    pip install -r arm64_requirements_cp310.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+    pip install rknn_toolkit2-2.3.0-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
 
-```
+    cd ~/rknn-toolkit2/rknn-toolkit-lite2/packages
+    pip install rknn_toolkit_lite2-2.3.0-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+
+    # 拷贝对应文件
+    cd ~/rknn-toolkit2/rknpu2/runtime/Linux/rknn_server/aarch64/usr/bin
+    sudo cp * /usr/bin/
+    cd ~/rknn-toolkit2/rknpu2/runtime/Linux/librknn_api/aarch64
+    sudo cp * /usr/lib/
+
 
 注意！务必检查安装的torch版本是否等于1.13.1，版本不对会报错
 
