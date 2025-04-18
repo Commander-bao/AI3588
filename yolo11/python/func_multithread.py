@@ -1,13 +1,6 @@
-import os
-import sys
 import numpy as np
 import cv2
 import config
-# 添加项目路径到系统路径，以便导入自定义模块
-realpath = os.path.abspath(__file__)  # 获取当前脚本的绝对路径
-_sep = os.path.sep  # 获取路径分隔符
-realpath = realpath.split(_sep)  # 将路径分割为列表
-sys.path.append(os.path.join(realpath[0] + _sep, *realpath[1:realpath.index('rknn_model_zoo') + 1]))  # 添加项目路径
 
 from py_utils.coco_utils import COCO_test_helper  # 导入 COCO 测试辅助工具
 co_helper = COCO_test_helper(enable_letter_box=True)

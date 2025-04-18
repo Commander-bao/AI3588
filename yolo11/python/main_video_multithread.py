@@ -20,7 +20,6 @@ args = argparse.Namespace(
     device_id=None,
     img_show=False,
     img_save=True,
-    anno_json='../../../datasets/COCO/annotations/instances_val2017.json',
     img_folder='../model',
     coco_map_test=False
 )
