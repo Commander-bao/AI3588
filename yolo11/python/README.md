@@ -1,3 +1,4 @@
+参考项目https://github.com/leafqycc/rknn-multi-threaded
 # 环境部署
 
 ## 主机端克隆官方Yolo仓库&\&Anaconda环境创建
